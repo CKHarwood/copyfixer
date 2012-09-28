@@ -7,3 +7,6 @@ Ctrl-C or Command-C copy page title and URL when select nothing.
 * Firefox: https://addons.mozilla.org/ja/firefox/addon/230354
 * Chrome: https://chrome.google.com/extensions/detail/gkpoieconkiifjafemnnohlegmfpipaa
 
+FORK INFO: Adding new keyboard shortcut that only copies the URL.
+(Replicates a feature that Google removed from Chrome.)
+
