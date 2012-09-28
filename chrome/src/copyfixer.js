@@ -5,19 +5,23 @@ function copyfixer(event) {
     var isWin = (navigator.platform.indexOf("Win") != -1);
     var isMac = (navigator.platform.indexOf("Mac") != -1);
     if ((! isMac && ! event.ctrlKey) || (isMac && ! event.metaKey)) return;
-    if (event.altKey)
+    if (isMac && event.ctrlKey)
         {
         if (isSelected()) return;
         var txt   = document.location.href;
-        chrome.extension.sendRequest({command: "copyfixerCopy", data: txt });
+        }
+        else if (! isMac && event.altKey)
+        {
+        if (isSelected()) return;
+        var txt   = document.location.href;
         }
     else
         {
         if (isSelected()) return;
         var crlf  = isWin ? "\r\n" : "\n";
         var txt   = document.title + crlf + document.location.href + crlf + crlf;
-        chrome.extension.sendRequest({command: "copyfixerCopy", data: txt });
         }
+    chrome.extension.sendRequest({command: "copyfixerCopy", data: txt });
 }
 
 function isSelected() {
